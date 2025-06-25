@@ -1,0 +1,38 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const mongoose = require('mongoose') // ODM
+
+const app = express();
+// habilitar o parser de JSON em todas as rotas.
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    return res.send('API AirCNC rodando...')
+})
+app.get('/ping', (req, res) => {
+    console.log('recebeu ping');
+    res.send('pong');
+})
+
+
+async function startDatabase(){
+    const {DB_USER, DB_PASS, DB_NAME} = process.env
+    const uri = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.cp2pd.mongodb.net/${DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
+
+    try{
+        await mongoose.connect(uri);
+        console.log('Concetado ao MongoDBAtlas')
+    } catch (error) {
+        console.error('Erro ao conectar ao MongoDB: ', error.message)
+        process.exit(1); // Encerra o processo se a conecção falhar
+    }
+}
+
+startDatabase().then( ()=> {
+    const port = process.env.PORT || 3335
+    app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+    })
+})
