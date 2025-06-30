@@ -1,21 +1,18 @@
 {
   "name": "aircnc-backend",
   "version": "1.0.0",
-  "description": "Backend de Reservas de salas",
+  "description": "Backend de Reservas de Salas",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "Nodejs, MongoDB"
+    "dev": "nodemon index.js",
+    "start": ""
   },
   "keywords": [
     "Nodejs",
     "MongoDB"
   ],
-  "author": "RafaelS",
+  "author": "JSFernando",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

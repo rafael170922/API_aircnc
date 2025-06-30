@@ -9,4 +9,4 @@ const router = express.Router();
 
 router.post('/', SessionController.store);
 
-module.export = router;
+module.exports = router;
