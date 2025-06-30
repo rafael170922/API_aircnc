@@ -16,7 +16,7 @@ return res.status(400).json({error:'Usuáro não existe!!!'})
         techs: techs.split(',').map(tech=> tech.trim()),
     })
 
-    return res.json(spot)
+    return res.json(spot);
 }
 
 module.exports = { store }

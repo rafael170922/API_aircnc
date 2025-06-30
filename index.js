@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     return res.send('API AirCNC rodando...')
 })
 app.use(routes);
-app.use('/files', express.static(path.resolve(__dirname, 'uploads')))
+app.use('/files', express.static(path.resolve(__dirname, 'uploads')));
 
 app.get('/ping', (req, res) => {
     console.log('recebeu ping');

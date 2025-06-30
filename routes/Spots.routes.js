@@ -7,7 +7,7 @@ const router = express.Router();
 const uploadConfig = require('../config/upload');
 const upload = multer(uploadConfig);
 
-router.post('/', upload.single('thumbnail'), SpotsController.store)
+router.post('/', upload.single('thumbnail'), SpotsController.store);
 
 
 module.exports = router
