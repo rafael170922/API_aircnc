@@ -9,6 +9,7 @@ const routes = require('./routes');
 const app = express();
 // Habilitar o parser de JSON em todas as rotas
 app.use(express.json());
+app.use(cors())
 
 app.get('/', (req, res) => {
     return res.send('API AirCNC rodando...')
