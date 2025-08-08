@@ -26,4 +26,17 @@ const store = async (req,res) =>{
     return res.json(spot);
 }
 
-module.exports = { store }
+const index = async (req, res) =>{
+    const { tech } = req.query
+    const spots = await Spots.find({ techs: tech})
+
+    return res.json(spots)
+}
+
+module.exports = { store, index }
+
+// Index - para consultar varios .get
+// store - para cadastrar .put
+// show - para consultar .get
+// remove - para deletar .delete
+// update - para alterar .
