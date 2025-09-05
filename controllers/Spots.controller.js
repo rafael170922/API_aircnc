@@ -29,6 +29,7 @@ const store = async (req,res) =>{
 const index = async (req, res) =>{
     const { tech } = req.query
     const spots = await Spots.find({ techs: tech})
+    
 
     return res.json(spots)
 }
